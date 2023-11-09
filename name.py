@@ -8,9 +8,7 @@ def list_of_files(directory, extension):
             files_names.append(filename)
     return files_names
 folder = "./speeches"
-files_names = list_of_files(folder, "txt")
-print(files_names)
-
+file_names = list_of_files(folder, "txt")
 
 def extract_name(file_name: str) -> str:
     """Extracts the President's name from the file name"""
@@ -23,19 +21,8 @@ def extract_name(file_name: str) -> str:
         name = matched.group(1)
     
     return name
+names = []
+for i in file_names:
+    names.append(extract_name(i))
+print(names)
 
-
-
-# for i in names:
-#     if i=='Chirac':
-#         name["Chirac"] = "Jacques Chirac"
-#     if i=='Giscard d\'Estaing':
-#         name["Giscard d\'Estaing"] = "Valéry Giscard d\'Estaing"
-#     if i=='Hollande':
-#         name["Hollande"] = 'François Hollande'
-#     if i=="Mitterrand":
-#         name["Mitterrand"] = 'François Mitterrand'
-#     if i=='Sarkozy':
-#         name["Sarkozy"] = 'Nicolas Sarkozy'
-#     if i=='Macron':
-#         name["Macron"] = 'Emmanuel Macron'
