@@ -7,8 +7,8 @@ def list_of_files(directory, extension):
         if filename.endswith(extension):
             files_names.append(filename)
     return files_names
-directory = "./speeches"
-files_names = list_of_files(directory, "txt")
+folder = "./speeches"
+files_names = list_of_files(folder, "txt")
 print(files_names)
 
 
@@ -26,18 +26,16 @@ def extract_name(file_name: str) -> str:
 
 
 
-name = {}
-
-for i in names:
-    if i=='Chirac':
-        name["Chirac"] = "Jacques Chirac"
-    if i=='Giscard d\'Estaing':
-        name["Giscard d\'Estaing"] = "Valéry Giscard d\'Estaing"
-    if i=='Hollande':
-        name["Hollande"] = 'François Hollande'
-    if i=="Mitterrand":
-        name["Mitterrand"] = 'François Mitterrand'
-    if i=='Sarkozy':
-        name["Sarkozy"] = 'Nicolas Sarkozy'
-    if i=='Macron':
-        name["Macron"] = 'Emmanuel Macron'
+# for i in names:
+#     if i=='Chirac':
+#         name["Chirac"] = "Jacques Chirac"
+#     if i=='Giscard d\'Estaing':
+#         name["Giscard d\'Estaing"] = "Valéry Giscard d\'Estaing"
+#     if i=='Hollande':
+#         name["Hollande"] = 'François Hollande'
+#     if i=="Mitterrand":
+#         name["Mitterrand"] = 'François Mitterrand'
+#     if i=='Sarkozy':
+#         name["Sarkozy"] = 'Nicolas Sarkozy'
+#     if i=='Macron':
+#         name["Macron"] = 'Emmanuel Macron'
