@@ -26,17 +26,18 @@ def extract_name(file_name: str) -> str:
 
 
 
-for i in range (8) :
+name = {}
+
+for i in names:
     if i=='Chirac':
-        name["Chirac"] = Jacques Chirac
+        name["Chirac"] = "Jacques Chirac"
     if i=='Giscard d\'Estaing':
-        name["Giscard d'Estaing"] = Jacques Chirac
-    if i==Chirac:
-        name["Chirac"] = Jacques Chirac
-    if i==Chirac:
-        name["Chirac"] = Jacques Chirac
-    if i==Chirac:
-        name["Chirac"] = Jacques Chirac
-    if i==Chirac:
-        name["Chirac"] = Jacques Chirac
-    
+        name["Giscard d\'Estaing"] = "Valéry Giscard d\'Estaing"
+    if i=='Hollande':
+        name["Hollande"] = 'François Hollande'
+    if i=="Mitterrand":
+        name["Mitterrand"] = 'François Mitterrand'
+    if i=='Sarkozy':
+        name["Sarkozy"] = 'Nicolas Sarkozy'
+    if i=='Macron':
+        name["Macron"] = 'Emmanuel Macron'
