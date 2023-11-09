@@ -25,6 +25,7 @@ def extract_name(file_name: str) -> str:
     return name
 
 
+
 for i in range (8) :
     if i=='Chirac':
         name["Chirac"] = Jacques Chirac
