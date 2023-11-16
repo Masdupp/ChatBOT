@@ -14,9 +14,13 @@ for j in text_to_modify:
 lowercase_letter = "abcdefghijklmnopqrstuvwxyzüéâäåçêëèïîìôöòûùÿáíóúñ"
 def ponct_changes(file):
     f = open(file, "w")
-    for i in f:
-        if i not in lowercase_letter:
-            i==""
+    res = ""
+    for i in f.read():
+        if i in lowercase_letter:
+            res += i
+        else:
+            res += " "
+    print(res)
 
 folder2="./cleaned"
 files_names = name.list_of_files(folder2,"txt")
