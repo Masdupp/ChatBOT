@@ -24,24 +24,19 @@ def extract_name(file_name: str) -> str:
 names = []
 for i in file_names:
     names.append(extract_name(i))
+print(names)
 
 name = {}
 
 for i in names:
-    if i=="Chirac":
-        name["Chirac"]="Jacques"
-    if i=="Giscard dEstaing":
-        name["Giscard d\'Estaing"]="Valéry"
-    if i=="Hollande":
-        name["Hollande"]="François"
-    if i=="Macron":
-        name["Macron"]="Emmanuel"
-    if i=="Sarkozy":
-        name["Sarkozy"]="Nicolas"
+    if i=='Chirac':
+        name["Chirac"] = "Jacques Chirac"
+    if i=='Giscard d\'Estaing':
+        name["Giscard d\'Estaing"] = "Valéry Giscard d\'Estaing"
+    if i=='Hollande':
+        name["Hollande"] = 'François Hollande'
     if i=="Mitterrand":
         name["Mitterrand"]="François"
 
 print(name)
-    
-
     
