@@ -1,4 +1,5 @@
 import os
+import name
 
 def modify_text_file_to_lowercase(file_path: str, new_folder_path: str, new_file_name: str) -> None:
     with open(file_path, 'r') as file:
@@ -13,11 +14,8 @@ def ponct_changes(file):
         if i not in lowercase_letter:
             i==""
 
-ponct_changes(/speeches/Nomination_Chirac1.txt)
-ponct_changes(/speeches/Nomination_Chirac2.txt)
-ponct_changes(/speeches/Nomination_Giscard dEstaing.txt)
-ponct_changes(/speeches/Nomination_Hollande.txt)
-ponct_changes(/speeches/Nomination_Macron.txt)
-ponct_changes(/speeches/Nomination_Mitterrand1.txt)
-ponct_changes(/speeches/Nomination_Mitterrand2.txt))
-ponct_changes(/speeches/Nomination_Sarkozy.txt)
+folder2="./cleaned"
+files_names=list_of_files(folder2,"txt")
+
+for i in files_names:
+    ponct_changes(i)
