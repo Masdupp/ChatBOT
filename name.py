@@ -23,14 +23,23 @@ def extract_name(file_name: str) -> str:
     return name
 names = []
 for i in file_names:
-    if i in names:
-        
-    else:
-        names.append(extract_name(i))
+    names.append(extract_name(i))
 
+name = {}
 
-name = {"Jacques": " ", "Valéry": " ", "François": " ","François": " "," Nicolas": " ","Emmanuel" : " "}
+for i in names:
+    if i=="Chirac":
+        name["Chirac"]="Jacques"
+    if i=="Giscard dEstaing":
+        name["Giscard d\'Estaing"]="Valéry"
+    if i=="Hollande":
+        name["Hollande"]="François"
+    if i=="Macron":
+        name["Macron"]="Emmanuel"
+    if i=="Sarkozy":
+        name["Sarkozy"]="Nicolas"
+    if i=="Mitterrand":
+        name["Mitterrand"]="François"
 
-
-print(names)
 print(name)
+    
