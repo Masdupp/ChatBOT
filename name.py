@@ -30,13 +30,17 @@ name = {}
 
 for i in names:
     if i=='Chirac':
-        name["Chirac"] = "Jacques Chirac"
-    if i=='Giscard d\'Estaing':
-        name["Giscard d\'Estaing"] = "Valéry Giscard d\'Estaing"
+        name["Chirac"] = "Jacques"
+    if i=='Giscard dEstaing':
+        name["Giscard d'Estaing"] = "Valéry"
     if i=='Hollande':
-        name["Hollande"] = 'François Hollande'
+        name["Hollande"] = 'François'
     if i=="Mitterrand":
-        name["Mitterrand"]="François"
+        name["Mitterrand"] = 'François'
+    if i=='Sarkozy':
+        name["Sarkozy"] = 'Nicolas'
+    if i=='Macron':
+        name["Macron"] = 'Emmanuel'
 
 print(name)
     
