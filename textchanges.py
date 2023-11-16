@@ -13,7 +13,7 @@ for j in text_to_modify:
 
 lowercase_letter = "abcdefghijklmnopqrstuvwxyzüéâäåçêëèïîìôöòûùÿáíóúñ"
 def ponct_changes(file):
-    f = open(file, "w")
+    f = open(file, "r")
     res = ""
     for i in f.read():
         if i in lowercase_letter:
@@ -26,4 +26,6 @@ folder2="./cleaned"
 files_names = name.list_of_files(folder2,"txt")
 
 for i in files_names:
-    ponct_changes(i)
+    print(i)
+    ponct_changes("speeches/" + i)
+    
