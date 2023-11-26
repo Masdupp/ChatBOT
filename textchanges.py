@@ -13,7 +13,7 @@ text_to_modify = name.list_of_files(name.folder,"txt")
 for j in text_to_modify:
     modify_text_file_to_lowercase(f"./speeches/{j}","./cleaned",j)
 
-lowercase_letter = "abcdefghijklmnopqrstuvwxyzüéàâäåçêëèïîìôöòûùÿáíóúñ123456789"
+lowercase_letter = "abcdefghijklmnopqrstuvwxyzüéàâäåçêëèïîìôöòûùÿáíóúñ1234567890"
 def ponct_changes(file_path: str):
     f = open(file_path, "r", encoding = 'utf-8')
     res = ""
