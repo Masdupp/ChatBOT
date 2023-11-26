@@ -11,7 +11,6 @@ folder = "./speeches"
 file_names = list_of_files(folder, "txt")
 
 def extract_name(file_name: str) -> str:
-    """Extracts the President's name from the file name"""
 
     regex = r"Nomination_([A-Za-z ]+)([12]*)\.txt"
 
@@ -24,7 +23,7 @@ def extract_name(file_name: str) -> str:
 names = []
 for i in file_names:
     names.append(extract_name(i))
-print(names)
+
 
 name = {}
 
@@ -41,6 +40,3 @@ for i in names:
         name["Sarkozy"] = 'Nicolas'
     if i=='Macron':
         name["Macron"] = 'Emmanuel'
-
-print(name)
-    
