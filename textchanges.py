@@ -48,5 +48,4 @@ def clean_file(input_file_path, output_file_path):
     with open(output_file_path, 'w') as file:
             file.write(cleaned_content)
 
-for i in files_names:
-     print(i)
+clean_file(speeches/Nomination_Chirac1.txt,cleaned/Nomination_Chirac1.txt)
