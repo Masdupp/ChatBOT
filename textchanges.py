@@ -1,5 +1,7 @@
 import os, shutil
 import name
+import string
+import re
 
 def modify_text_file_to_lowercase(file_path: str, new_folder_path: str, new_file_name: str) -> None:
     with open(file_path, 'r',encoding='utf8') as file:
@@ -11,25 +13,20 @@ text_to_modify = name.list_of_files(name.folder,"txt")
 for j in text_to_modify:
     modify_text_file_to_lowercase(f"./speeches/{j}","./cleaned",j)
 
-
-lowercase_letter = "abcdefghijklmnopqrstuvwxyzüéâäåçêëèïîìôöòûùÿáíóúñ"
-
-
-def ponct_changes(file, directory):
-    with open(file,'r') as f:
-        text = f.read()
-    res=" "
-    for i in text:
+lowercase_letter = "abcdefghijklmnopqrstuvwxyzüéàâäåçêëèïîìôöòûùÿáíóúñ1234567890"
+def ponct_changes(file_path: str):
+    f = open(file_path, "r", encoding = 'utf-8')
+    res = ""
+    for i in f.read():
         if i in lowercase_letter:
             res+=i
         else:
-            res+= " "
-    text=res
+            res += " "
+    with open(file_path, 'w') as file:
+        file.write(res)
 
 
+text_to_modifys = name.list_of_files(name.folder,"txt")
+for j in text_to_modifys:
+    ponct_changes(f"./cleaned/{j}")
 
-folder2="./cleaned"
-files_names = name.list_of_files(folder2,"txt")
-
-for i in files_names:
-    ponct_changes(f"cleaned/{i}")
