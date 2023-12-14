@@ -30,3 +30,24 @@ text_to_modifys = name.list_of_files(name.folder,"txt")
 for j in text_to_modifys:
     ponct_changes(f"./cleaned/{j}")
 
+
+def tf(string): #measures how often a word appears in a specific document
+    dict = {}
+    words = ""
+    list_of_word = []
+    for i in string:
+        if i == " " or i in ",;:!?./'-" or i == "\n" and words != "":
+            if words in dict:
+                dict[words] += 1
+                words = ""
+            elif words not in dict and words != "":
+                dict[words] = 1
+                words = ""
+        if i not in ",;:!?./-' \n":
+            words += i
+
+    if words in dict:
+        dict[words] += 1
+    elif words not in dict and words != "":
+        dict[words] = 1
+    return dict
