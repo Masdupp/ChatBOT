@@ -1,10 +1,10 @@
-import os
+import os, shutil
 import name
 import string
 import re
 
 def modify_text_file_to_lowercase(file_path: str, new_folder_path: str, new_file_name: str) -> None:
-    with open(file_path, 'r') as file:
+    with open(file_path, 'r',encoding='utf8') as file:
         text = file.read().lower()
     new_file_path = os.path.join(new_folder_path, new_file_name)
     with open(new_file_path, 'w') as file:
@@ -19,7 +19,7 @@ def ponct_changes(file_path: str):
     res = ""
     for i in f.read():
         if i in lowercase_letter:
-            res += i
+            res+=i
         else:
             res += " "
     with open(file_path, 'w') as file:
