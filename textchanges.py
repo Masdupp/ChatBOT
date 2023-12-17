@@ -93,3 +93,15 @@ def least_important_words(directory):
             least_important_words_list.append(word)
     return least_important_words_list
 
+def highest_TD_IDF_score(directory):
+    highest_TD_IDF_score_list = []
+    dictionnary = idf(directory)
+    maximum = 0
+    for word in dictionnary:
+        if dictionnary[word] >= maximum:
+            maximum = dictionnary[word]
+    for word in dictionnary:
+        if dictionnary[word] == maximum:
+            highest_TD_IDF_score_list.append(word)
+    return highest_TD_IDF_score_list
+
