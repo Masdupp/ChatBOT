@@ -78,10 +78,10 @@ def tf_idf(directory): #score of a word in a given document is a numerical vecto
                 dict_tf = tf(file.read())
                 for word in dict_idf:
                     if word in dict_tf:
-                        ligne.append(dict_idf[word] * dict_tf[word])
+                        lign.append(dict_idf[word] * dict_tf[word])
                     if word not in dict_tf:
-                        ligne.append(0)
-            matrix_td_idf.append(ligne)
+                        lign.append(0)
+            matrix_td_idf.append(lign)
             lign = []
     return matrix_td_idf
 
@@ -104,4 +104,26 @@ def highest_TD_IDF_score(directory):
         if dictionnary[word] == maximum:
             highest_TD_IDF_score_list.append(word)
     return highest_TD_IDF_score_list
+
+def most_repeated_word_by_Presiden(name):
+    dictionnary_president= {}
+    max = 0
+    max_list = []
+    for j in name.list_of_files("Cleaned", ".txt"):
+        if name in j:
+            with open(r"speeches" +  "\\" + j, 'r', encoding = 'utf-8') as file:
+                dictionnary = tf(file.read())
+                for word in dictionnary:
+                    if word in dictionnary_president:
+                        dictionnary_president[word] += dictionnary[word]
+                    elif word not in dictionnary_president:
+                        dictionnary_president[word] = dictionnary[word]
+    for word in dictionnary_president:
+        if dictionnary_president[word] > max:
+            max = dictionnary_president[word]
+    for word in dictionnary_president:
+        if dictionnary_president[word] == max:
+            max_list.append(word)
+    return max_list
+
 
