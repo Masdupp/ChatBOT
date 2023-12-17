@@ -148,3 +148,17 @@ def word_finder(word): #Find the president who said a word the most, how many ti
             maximum_mot = dictionary_word_finder[name]
             name_maximum = name
     return name_maximum, dictionary_word_finder
+
+def first_pronunced_word(word):
+    dictionary_word_finder = word_finder(word)
+    list_name = ['Giscard dEstaing', 'Mitterrand', 'Chirac', 'Sarkozy', 'Hollande', 'Macron']
+    minimum = len((list_name))
+    for name in dictionary_word_finder:
+        counter = 0
+        for i in list_name:
+            if name == i and minimum >= counter:
+                minimum = counter
+                name_minimum = i
+            counter += 1
+    return list_name[minimum], minimum
+
