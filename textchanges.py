@@ -55,7 +55,7 @@ def tf(string): #measures how often a word appears in a specific document
 def idf(directory):  #measures the importance of a word in the entire corpus of documents
     files_names, types, dic = [], ".txt", {}
     word = ""
-    directory = r"C:\Users\Tombi\Desktop\pychatbot-Thomas-Alexandre-int4-main" + "\\" + directory
+    directory = r"speeches" + "\\" + directory
     for namefile in os.listdir(directory):
         if namefile.endswith(types):
             with open(directory + "\\" + namefile, 'r', encoding = 'utf-8') as file:
