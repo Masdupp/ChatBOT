@@ -85,45 +85,66 @@ def tf_idf(directory): #score of a word in a given document is a numerical vecto
             lign = []
     return matrix_td_idf
 
-def least_important_words(directory):
+def least_important_words(directory):    #Display the list of least important words in the document corpus (TD-IDF=0)
     least_important_words_list = []
-    dictionnary = idf(directory)
+    dictionary = idf(directory)
     for word in dict:
-        if dictionnary[word] == 0:
+        if dictionary[word] == 0:
             least_important_words_list.append(word)
     return least_important_words_list
 
-def highest_TD_IDF_score(directory):
+def highest_TD_IDF_score(directory):       #Display the word with the highest TD-IDF score
     highest_TD_IDF_score_list = []
-    dictionnary = idf(directory)
+    dictionary = idf(directory)
     maximum = 0
-    for word in dictionnary:
-        if dictionnary[word] >= maximum:
-            maximum = dictionnary[word]
-    for word in dictionnary:
-        if dictionnary[word] == maximum:
+    for word in dictionary:
+        if dictionary[word] >= maximum:
+            maximum = dictionary[word]
+    for word in dictionary:
+        if dictionary[word] == maximum:
             highest_TD_IDF_score_list.append(word)
     return highest_TD_IDF_score_list
 
-def most_repeated_word_by_Presiden(name):
-    dictionnary_president= {}
+def most_repeated_word_by_President(name): 
+    dictionary_president= {}
     max = 0
     max_list = []
     for j in name.list_of_files("Cleaned", ".txt"):
         if name in j:
             with open(r"speeches" +  "\\" + j, 'r', encoding = 'utf-8') as file:
-                dictionnary = tf(file.read())
-                for word in dictionnary:
-                    if word in dictionnary_president:
-                        dictionnary_president[word] += dictionnary[word]
-                    elif word not in dictionnary_president:
-                        dictionnary_president[word] = dictionnary[word]
-    for word in dictionnary_president:
-        if dictionnary_president[word] > max:
-            max = dictionnary_president[word]
-    for word in dictionnary_president:
-        if dictionnary_president[word] == max:
+                dictionary = tf(file.read())
+                for word in dictionary:
+                    if word in dictionary_president:
+                        dictionary_president[word] += dictionary[word]
+                    elif word not in dictionary_president:
+                        dictionary_president[word] = dictionary[word]
+    for word in dictionary_president:
+        if dictionary_president[word] > max:
+            max = dictionary_president[word]
+    for word in dictionary_president:
+        if dictionary_president[word] == max:
             max_list.append(word)
     return max_list
 
 
+def word_finder(word): #Find the president who said a word the most, how many time and other president who said the word
+    dictionary_word_finder = {}
+    maximum_mot, name_maximum = 0, ""
+    list_name = name.extract_name(name.list_of_files("Speeches", "txt"))
+    for filename in os.listdir(r"speeches"):
+        if filename.endswith(".txt"):
+            with open(r"speeches" +  "\\" + filename, 'r', encoding = 'utf-8') as file:
+                dict = tf(file.read())
+                for name in list_name:
+                    if name in filename:
+                        for word_dict in dict:
+                            if word_dict == word:
+                                if name in dictionary_word_finder:
+                                    dictionary_word_finder[name] += dict[word_dict]
+                                elif name not in dictionary_word_finder:
+                                    dictionary_word_finder[name] = dict[word_dict]
+    for name in dictionary_word_finder:
+        if dictionary_word_finder[name] > maximum_mot:
+            maximum_mot = dictionary_word_finder[name]
+            name_maximum = name
+    return name_maximum, dictionary_word_finder
