@@ -149,7 +149,7 @@ def word_finder(word): #Find the president who said a word the most, how many ti
             name_maximum = name
     return name_maximum, dictionary_word_finder
 
-def first_pronunced_word(word):
+def first_pronounced_word(word):    #return the name of the president that said a word first
     dictionary_word_finder = word_finder(word)
     list_name = ['Giscard dEstaing', 'Mitterrand', 'Chirac', 'Sarkozy', 'Hollande', 'Macron']
     minimum = len((list_name))
@@ -162,3 +162,21 @@ def first_pronunced_word(word):
             counter += 1
     return list_name[minimum], minimum
 
+def word_by_all_president(word):     #return a word said by all the president
+    dictionary = {}
+    list_name = ['Giscard dEstaing', 'Mitterrand', 'Chirac', 'Sarkozy', 'Hollande', 'Macron']
+    for filename in os.listdir(r"speeches\Cleaned"):
+        if filename.endswith(".txt"):
+            with open(r"speeches\Cleaned" + "\\" + filename, 'r', encoding = 'utf-8') as file:
+                for name in list_name:
+                    if name in filename:
+                        for i in tf(file.read()):
+                            if i == word:
+                                if name in dictionary:
+                                    dictionary[name] += 1
+                                if name not in dictionary:
+                                    dictionary[name] = 1
+    if dictionary == {'Chirac': 1, 'Giscard dEstaing': 1, 'Hollande': 1, 'Macron': 1, 'Mitterrand': 2, 'Sarkozy': 1} or dictionary ==  {'Chirac': 2, 'Giscard dEstaing': 1, 'Hollande': 1, 'Macron': 1, 'Mitterrand': 1, 'Sarkozy': 1} or dictionary == {'Chirac': 1, 'Giscard dEstaing': 1, 'Hollande': 1, 'Macron': 1, 'Mitterrand': 1, 'Sarkozy': 1}:
+        return 1
+    if dictionary != {'Chirac': 1, 'Giscard dEstaing': 1, 'Hollande': 1, 'Macron': 1, 'Mitterrand': 2, 'Sarkozy': 1} or dictionary != {'Chirac': 2, 'Giscard dEstaing': 1, 'Hollande': 1, 'Macron': 1, 'Mitterrand': 1, 'Sarkozy': 1} or dictionary != {'Chirac': 1, 'Giscard dEstaing': 1, 'Hollande': 1, 'Macron': 1, 'Mitterrand': 1, 'Sarkozy': 1}:
+        return 0
