@@ -70,11 +70,11 @@ def idf(directory):  #measures the importance of a word in the entire corpus of 
 
 def tf_idf(directory): #score of a word in a given document is a numerical vector that reflects both the frequency of the word in that document and its relative importance in relation to the corpus as a whole
     matrix_td_idf = []
-    ligne = []
+    lign = []
     dict_idf = idf(directory)
-    for filename in os.listdir(r"C:\Users\Tombi\Desktop\pychatbot-Thomas-Alexandre-int4-main" + "\\" + directory):
+    for filename in os.listdir(r"speeches" + "\\" + directory):
         if filename.endswith(".txt"):
-            with open(r"C:\Users\Tombi\Desktop\pychatbot-Thomas-Alexandre-int4-main" + "\\" + directory + "\\" + filename, 'r', encoding = 'utf-8') as file:
+            with open(r"speeches + ","\\" + directory + "\\" + filename, 'r', encoding = 'utf-8') as file:
                 dict_tf = tf(file.read())
                 for word in dict_idf:
                     if word in dict_tf:
@@ -82,5 +82,14 @@ def tf_idf(directory): #score of a word in a given document is a numerical vecto
                     if word not in dict_tf:
                         ligne.append(0)
             matrix_td_idf.append(ligne)
-            ligne = []
+            lign = []
     return matrix_td_idf
+
+def least_important_words(directory):
+    least_important_words_list = []
+    dictionnary = idf(directory)
+    for word in dict:
+        if dictionnary[word] == 0:
+            least_important_words_list.append(word)
+    return least_important_words_list
+
