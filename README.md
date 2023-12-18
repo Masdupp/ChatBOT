@@ -2,7 +2,7 @@ Welcome in our Python Project's Code
 Developers are Timothée Baudry and Oscar Masdupuy 
 
 
-Git repersitory : https://github.com/Masdupp/ChatBOT
+Git reprsitory : https://github.com/Masdupp/ChatBOT
 
 With this chatbot, you can 
 - Extract names from text files provided ;
