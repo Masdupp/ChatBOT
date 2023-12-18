@@ -1,17 +1,18 @@
-Welcome in our Python Project's Code
+Welcome in our Python Project's Code, named my first chatBot
 Developers are Timothée Baudry and Oscar Masdupuy 
 
 
-Git reprsitory : https://github.com/Masdupp/ChatBOT
+Git repository : https://github.com/Masdupp/ChatBOT
 
 With this chatbot, you can 
-- Extract names from text files provided ;
-- Associate a first name with each name;
-- Display the list of names ;
-- Convert the texts to lower case and store the contents in new files. The new files are in a new folder and remove any punctuation characters.
+    -Extract names from text files provided ;
+    -Associate a first name with each name;
+    -Display the list of names;
+    -Convert the texts to lower case and store the contents in new files. The new files are in a new folder and remove any punctuation characters;
+    -Display the names of the studied presidents;
+    -Display the least important words in all speeches;
+    -Display the most used word in a specific speech;
+    -Display the presidents that have said a specific word;
+    -Display the first speeches to talk about a specific topic;
 
-
-Based on the above functions:
-You can display the list of least important words in the document corpus. A word is said to be unimportant if its TDIDF = 0 in all files.
-Display the words with the highest TD-IDF score
-
+Hope you'll enjoy the use of it !
