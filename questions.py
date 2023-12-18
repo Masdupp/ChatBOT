@@ -28,7 +28,7 @@ def calculate_tf(question, document): #calculate the tf score of the question
 
 def calculate_tfidf(question, document_directory): #associate an idf score to the words of the question
     tf_scores = calculate_tf(question, document_directory)
-    idf_scores = tf_idf(document_directory)
+    idf_scores = textchanges.tf_idf(document_directory)
     tfidf_scores = {}
     for term in tf_scores:
         tfidf_scores[term] = tf_scores[term] * idf_scores[term]
