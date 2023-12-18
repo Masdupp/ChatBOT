@@ -34,21 +34,22 @@ def calculate_tfidf(question, document_directory): #associate an idf score to th
         tfidf_scores[term] = tf_scores[term] * idf_scores[term]
     return tfidf_scores
 
-def scalar_product(vectorA,vectorB): #returs the scalar product of the two vectors
+def scalar_product(vectorA,vectorB): #returns the scalar product of the two vectors
     scalar = 0
     for i in range(len(vectorA)):
-        scalar += vectorA[i]vectorB[i]
+        scalar += vectorA[i] * vectorB[i]
     return scalar
 
-def norm(vector): #returns the norm of the vector
+def norm(vector): #returns the norm of a vector
     norm = 0
     for i in range(len(vector)):
-        norm += vector[i]2
-    return norm(1/2)
+        norm += vector[i]**2
+    return norm**(1/2)
 
 
-def cosine_similarity(vectorA, vectorB): #returns the cosine similarity between the two vectors
-    cosine = scalar_product(vectorA,vectorB)/(norm(vectorA)norm(vectorB))
+
+def cosine_similarity(vectorA, vectorB):
+    cosine = scalar_product(vectorA, vectorB) / (norm(vectorA) * norm(vectorB))
     return cosine
 
 
