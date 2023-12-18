@@ -56,19 +56,19 @@ if __name__ == "__main__":
                 print(filename)
             filename = ""
             while filename not in list_of_files(directory + "\clean"):
-                filename = input("Please enter the name of the speech you want to analyze: ")
+                filename = input("Enter the name of the speech you want to analyze: ")
                 if filename not in list_of_files(directory + "\clean"):
-                    print("Sorry, this is not a valid option.")
-            print("Here are the most used words in the speech", filename, ":")
+                    print("Try again, that's not a valid option.")
+            print("There are the most used words in this speech", filename, ":")
             temp = most_repeated_word_by_President(filename, directory).values()
             for i, j in most_repeated_word_by_President(filename, directory).items():
                 if temp == j:
                     print(i, ":", j)
         elif choice == "5":
-            print("Sure ! Here are the presidents who told a specific word:")
+            print("Sure ! There are the presidents who told a specific word:")
             word = input("Please enter the word you want to search: ")
             word = word.lower()
-            print("Here are the president that told the word ", word, ":")
+            print("There are the president that told your word ", word, ":")
             word_finder(word)
             '''temp, temp2 = [],[]
             for filename in list_of_files(directory + "\clean"):
@@ -84,22 +84,22 @@ if __name__ == "__main__":
             if not temp2:
                 print("Sorry, no president told this word.")'''
         elif choice == "6":
-            print("Sure ! Here is the first speech to talk about a specific topic:")
-            word = input("Please enter the word you want to search: ")
+            print("Let's do it ! Here is the first speech to talk about a specific topic:")
+            word = input("Please enter the topic you want to search for: ")
             word = word.lower()
-            print("Here is the president that talked about", word, "the first :")
+            print("Here is the president that was the first to talk about", word, ":")
             test, tmp = [], 0
             first_pronounced_word(word)
             if not test:
-                print("Sorry, no president talked about this word.")
+                print("Sorry, no president have talked about this word.")
             else:
                 print(test[0])           
             
         elif choice == "7":
-            print("Sure ! Here is the number of times a word is said in all speeches:")
-            word = input("Please enter the word you want to search: ")
+            print("Yep good choice ! Here is the number of times a word is said in all speeches:")
+            word = input("Please enter the word you're looking for: ")
             word = word.lower()
-            print("Here is the number of times the word", word, "is said in all speeches :", end=" ")
+            print("There is the number of times the word", word, "is said in all of the speeches :", end=" ")
             tmp = " "
             nb_time= 0
             for filename in list_of_files("Cleaned","txt"):
@@ -108,7 +108,7 @@ if __name__ == "__main__":
 
             if nb_time==0:
                 print()
-                print("Sorry, no president talked about this word.")
+                print("Sorry, no president have talked about this word, maybe the next president will.")
             else:
                 print(temp[word])
         #elif choice == "8":
