@@ -47,7 +47,7 @@ def tf(string): #measures how often a word appears in a specific document
 def idf(directory):  #measures the importance of a word in the entire corpus of documents
     files_names, types, dic = [], ".txt", {}
     word = ""
-    directory = r"C:\Users\Administrateur\OneDrive - Efrei\Bureau\ChatBOT\cleaned" + "\\" + directory
+    directory = r"C:\Users\Administrateur\OneDrive - Efrei\Bureau\ChatBOT" + "\\" + directory
     for namefile in os.listdir(directory):
         if namefile.endswith(types):
             with open(directory + "\\" + namefile, 'r', encoding = 'utf-8') as file:
@@ -66,7 +66,7 @@ def tf_idf(directory): #score of a word in a given document is a numerical vecto
     dict_idf = idf(directory)
     for filename in os.listdir(r"C:\Users\Administrateur\OneDrive - Efrei\Bureau\ChatBOT\cleaned" + "\\" + directory):
         if filename.endswith(".txt"):
-            with open(r"C:\Users\Administrateur\OneDrive - Efrei\Bureau\ChatBOT\cleaned + ","\\" + directory + "\\" + filename, 'r', encoding = 'utf-8') as file:
+            with open(r"C:\Users\Administrateur\OneDrive - Efrei\Bureau\ChatBOT" + "\\" + directory + "\\" + filename, 'r', encoding = 'utf-8') as file:
                 dict_tf = tf(file.read())
                 for word in dict_idf:
                     if word in dict_tf:
