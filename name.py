@@ -2,6 +2,12 @@ import re
 import os
 
 def list_of_files(directory, extension):
+    '''Returns the names of the files in a directory
+            Parameters :
+            directory, extension 
+        Returns:
+            list_of_files : The list of all the files in the directory
+    '''
     files_names = []
     for filename in os.listdir(directory):
         if filename.endswith(extension):
@@ -11,7 +17,11 @@ folder = "./speeches"
 file_names = list_of_files(folder, "txt")
 
 def extract_name(file_name: str) -> str:
-    """Extracts the President's name from the file name"""
+    """Extracts the President's name from the file names
+        Parameters :
+            file_name :The list of files
+        Returns:
+            name : list of all the names"""
 
     regex = r"Nomination_([A-Za-z ]+)([12]*)\.txt"
 

@@ -34,13 +34,23 @@ def calculate_tfidf(question, document_directory): #associate an idf score to th
         tfidf_scores[term] = tf_scores[term] * idf_scores[term]
     return tfidf_scores
 
-def scalar_product(vectorA,vectorB): #returns the scalar product of the two vectors
+def scalar_product(vectorA,vectorB): 
+    """Returns the scalar product of the two vectors.
+        Parameters:
+            vectorA, vectorB : the two vectors
+        Returns:
+            scalar: the scalar product of the two vectors"""
     scalar = 0
     for i in range(len(vectorA)):
         scalar += vectorA[i] * vectorB[i]
     return scalar
 
-def norm(vector): #returns the norm of a vector
+def norm(vector): 
+    """  Returns the norm of the vector.
+        Parameters:
+            vector: the vector
+        Returns:
+            norm: the norm of the vector"""
     norm = 0
     for i in range(len(vector)):
         norm += vector[i]**2
@@ -49,11 +59,21 @@ def norm(vector): #returns the norm of a vector
 
 
 def cosine_similarity(vectorA, vectorB):
+    """Returns the cosine similarity between the two vectors.
+        Parameters:
+            vectorA, vectorB : the two vectors
+        Returns:
+            cosine : the cosine similarity between the two vectors"""
     cosine = scalar_product(vectorA, vectorB) / (norm(vectorA) * norm(vectorB))
     return cosine
 
 
 def find_most_relevant(tfidf_matrix, tfidf_vector, file_names): #find the most relevant document in the cleaned directory
+    """Returns a list of the most relevant document in the cleaned directory.
+        Parameters:
+            tfidf_matrix, tfidf_vector, file_names: two matrix and the list file_names
+        Returns:
+            file_names[most_relevant_index]: The list of the most relevant document"""
     similarities = cosine_similarity(tfidf_matrix, tfidf_vector)
     most_relevant_index = similarities.argmax()
     return file_names[most_relevant_index]
@@ -61,7 +81,13 @@ def find_most_relevant(tfidf_matrix, tfidf_vector, file_names): #find the most r
 def get_speeches_file_name(cleaned_file_name): #get the equivalent document from cleaned into speeches
     return cleaned_file_name.replace("./cleaned", "./speeches")
 
-def find_keyword_and_sentence(tfidf_vector, tfidf_feature_names, document): #Locate the word with the highest TF-IDF score and locate the first occurence of the word in the relevant document, and then return the sentence containing the keyword as answer
+def find_keyword_and_sentence(tfidf_vector, tfidf_feature_names, document): 
+    """Locate the word with the highest TF-IDF score and locate the first occurence of the word in the relevant document, 
+    and then return the sentence containing the keyword as answer.
+        Parameters:
+            tfidf_vector, tfidf_feature_names, document: the vector, feature names and the document to look at
+        Returns:
+            keyword + sentence: Sentence containing the keyword as answer"""
     keyword_index = tfidf_vector.argmax()
     keyword = tfidf_feature_names[keyword_index]
 
@@ -73,6 +99,11 @@ def find_keyword_and_sentence(tfidf_vector, tfidf_feature_names, document): #Loc
     return None, None
 
 def generate_response(question, answer, question_starters): #added a capital letter at the beginning and a final point and then add a starter word
+    """Generate a well written response with capital letter, final point and eventually a starter for the response.
+        Parameters:
+            question, answer, question_starters: strings 
+        Returns:
+            answer: string with the answer to the question"""
     answer = answer[0].upper() + answer[1:] + "."
 
     for starter, model_response in question_starters.items():
