@@ -28,10 +28,11 @@ if __name__ == "__main__":
     print("4. Display the most used word in a specific speech")
     print("5. Display the presidents that have said a specific word")
     print("6. Display the first speeches to talk about a specific topic")
-    print("7. Ask antoher question")
-    print("8. Exit the program")
+    print("7. Display the the number of times a word is used in all speeches")
+    print("8. Ask antoher question")
+    print("9. Exit the program")
     choice = input("Please enter the number of the option you want to choose: ")
-    while choice != "8":
+    while choice != "9":
         if choice == "1":
             print("Sure ! Here are the names of the presidents:")
             temp = names(extract_name(directory + "/speeches"))
@@ -92,14 +93,7 @@ if __name__ == "__main__":
             if not test:
                 print("Sorry, no president talked about this word.")
             else:
-                print(test[0])
-        #elif choice == "7":
-            #question = input("Yes I can do this ! Enter a question and I'll answer from the speeches !")
-            #question = words_from_words(question)
-            #tmp = ""
-            #for filename in list_of_files("Cleaned","txt"):
-
-            
+                print(test[0])           
             
         elif choice == "7":
             print("Sure ! Here is the number of times a word is said in all speeches:")
@@ -117,6 +111,11 @@ if __name__ == "__main__":
                 print("Sorry, no president talked about this word.")
             else:
                 print(temp[word])
+        #elif choice == "8":
+            #question = input("Yes I can do this ! Enter a question and I'll answer from the speeches !")
+            #question = words_from_words(question)
+            #tmp = ""
+            #for filename in list_of_files("Cleaned","txt"):
         else:
             print("Sorry, this is not a valid option.")
         choice = input("Please enter the number of the option you want to choose: ")
