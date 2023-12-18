@@ -64,9 +64,9 @@ def tf_idf(directory): #score of a word in a given document is a numerical vecto
     matrix_td_idf = []
     lign = []
     dict_idf = idf(directory)
-    for filename in os.listdir(r"speeches" + "\\" + directory):
+    for filename in os.listdir(r"C:\Users\Administrateur\OneDrive - Efrei\Bureau\ChatBOT\cleaned" + "\\" + directory):
         if filename.endswith(".txt"):
-            with open(r"speeches + ","\\" + directory + "\\" + filename, 'r', encoding = 'utf-8') as file:
+            with open(r"C:\Users\Administrateur\OneDrive - Efrei\Bureau\ChatBOT\cleaned + ","\\" + directory + "\\" + filename, 'r', encoding = 'utf-8') as file:
                 dict_tf = tf(file.read())
                 for word in dict_idf:
                     if word in dict_tf:
@@ -103,7 +103,7 @@ def most_repeated_word_by_President(name):
     max_list = []
     for j in name.list_of_files("Cleaned", ".txt"):
         if name in j:
-            with open(r"speeches" +  "\\" + j, 'r', encoding = 'utf-8') as file:
+            with open(r"C:\Users\Administrateur\OneDrive - Efrei\Bureau\ChatBOT\cleaned" +  "\\" + j, 'r', encoding = 'utf-8') as file:
                 dictionary = tf(file.read())
                 for word in dictionary:
                     if word in dictionary_president:
@@ -123,9 +123,9 @@ def word_finder(word): #Find the president who said a word the most, how many ti
     dictionary_word_finder = {}
     maximum_mot, name_maximum = 0, ""
     list_name = name.extract_name(name.list_of_files("Speeches", "txt"))
-    for filename in os.listdir(r"speeches"):
+    for filename in os.listdir(r"C:\Users\Administrateur\OneDrive - Efrei\Bureau\ChatBOT\cleaned"):
         if filename.endswith(".txt"):
-            with open(r"speeches" +  "\\" + filename, 'r', encoding = 'utf-8') as file:
+            with open(r"C:\Users\Administrateur\OneDrive - Efrei\Bureau\ChatBOT\cleaned" +  "\\" + filename, 'r', encoding = 'utf-8') as file:
                 dict = tf(file.read())
                 for name in list_name:
                     if name in filename:
@@ -157,9 +157,9 @@ def first_pronounced_word(word):    #return the name of the president that said 
 def word_by_all_president(word):     #return a word said by all the president
     dictionary = {}
     list_name = ['Giscard dEstaing', 'Mitterrand', 'Chirac', 'Sarkozy', 'Hollande', 'Macron']
-    for filename in os.listdir(r"speeches\Cleaned"):
+    for filename in os.listdir(r"C:\Users\Administrateur\OneDrive - Efrei\Bureau\ChatBOT\cleaned"):
         if filename.endswith(".txt"):
-            with open(r"speeches\Cleaned" + "\\" + filename, 'r', encoding = 'utf-8') as file:
+            with open(r"C:\Users\Administrateur\OneDrive - Efrei\Bureau\ChatBOT\cleaned" + "\\" + filename, 'r', encoding = 'utf-8') as file:
                 for name in list_name:
                     if name in filename:
                         for i in tf(file.read()):
