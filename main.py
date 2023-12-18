@@ -43,8 +43,7 @@ if __name__ == "__main__":
             lowest = least_important_words(directory, tf_idf1)
             for i in lowest:
                 print(i)
-            print("These words are not important, meaning that their tf-idf "
-                  "score is 0!")
+            print("These words are not important, meaning that their tf-idf score is 0!")
         elif choice == "3":
             print("Of course ! Here are the most important words in all speeches:")
             highest_TD_IDF_score(directory, tf_idf1)
