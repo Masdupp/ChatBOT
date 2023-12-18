@@ -71,3 +71,12 @@ def find_keyword_and_sentence(tfidf_vector, tfidf_feature_names, document): #Loc
             return keyword, '"' + sentence + '"'
 
     return None, None
+
+def generate_response(question, answer, question_starters): #added a capital letter at the beginning and a final point and then add a starter word
+    answer = answer[0].upper() + answer[1:] + "."
+
+    for starter, model_response in question_starters.items():
+        if question.startswith(starter):
+            return model_response + answer
+
+    return answer
