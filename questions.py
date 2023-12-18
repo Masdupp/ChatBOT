@@ -2,6 +2,11 @@ import textchanges
 import re
 
 def words_from_words(question):
+    """Tokenize a question into individual words as the corpus documents.
+        Parameters:
+            question: string
+        Returns:
+            words: string with the question in the good format"""
     question_text = re.sub(r'[^\w\s]', '', question)
     question_text = question_text.lower()
     words = question_text.split()
@@ -9,12 +14,22 @@ def words_from_words(question):
     return words
 
 def find_common_terms(question, document):
+    """Identifies the terms in the question that are present in the document corpus.
+        Parameters:
+            question, document: string, document
+        Returns:
+            common_terms: list of terms that are present in the question and the document"""
     question_words = set(words_from_words(question))
     corpus_words = set(document.split())
     common_terms = question_words.intersection(corpus_words)
     return common_terms
 
 def calculate_tf(question, document): #calculate the tf score of the question
+    """Calculate the TF score of the question.
+        Parameters:
+            question, document: string, document
+        Returns:
+            list: list of integers for the frequency of every word"""
     question_words = words_from_words(question)
     corpus_words = set(document.split())
     tf_scores = {}
@@ -26,9 +41,14 @@ def calculate_tf(question, document): #calculate the tf score of the question
     return tf_scores
 
 
-def calculate_tfidf(question, document_directory): #associate an idf score to the words of the question
+def calculate_tfidf(question, document_directory): 
+    """Associate an idf score to the words of the question.
+        Parameters:
+            question, document_directory: string, directory
+        Returns:
+            tfidf_scores: matrix of the tfidf scores"""
     tf_scores = calculate_tf(question, document_directory)
-    idf_scores = tf_idf(document_directory)
+    idf_scores = textchanges.tf_idf(document_directory)
     tfidf_scores = {}
     for term in tf_scores:
         tfidf_scores[term] = tf_scores[term] * idf_scores[term]
