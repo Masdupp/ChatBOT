@@ -64,9 +64,9 @@ def tf_idf(directory): #score of a word in a given document is a numerical vecto
     matrix_td_idf = []
     lign = []
     dict_idf = idf(directory)
-    for filename in os.listdir(r"C:\Users\Administrateur\OneDrive - Efrei\Bureau\ChatBOT\cleaned" + "\\" + directory):
+    for filename in os.listdir(r"" + "\\" + directory):
         if filename.endswith(".txt"):
-            with open(r"C:\Users\Administrateur\OneDrive - Efrei\Bureau\ChatBOT" + "\\" + directory + "\\" + filename, 'r', encoding = 'utf-8') as file:
+            with open(r"" + directory + filename, 'r', encoding = 'utf-8') as file:
                 dict_tf = tf(file.read())
                 for word in dict_idf:
                     if word in dict_tf:
@@ -103,7 +103,7 @@ def most_repeated_word_by_President(name):
     max_list = []
     for j in name.list_of_files("Cleaned", ".txt"):
         if name in j:
-            with open(r"C:\Users\Administrateur\OneDrive - Efrei\Bureau\ChatBOT\cleaned" +  "\\" + j, 'r', encoding = 'utf-8') as file:
+            with open(r" " +  "\\" + j, 'r', encoding = 'utf-8') as file:
                 dictionary = tf(file.read())
                 for word in dictionary:
                     if word in dictionary_president:

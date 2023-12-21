@@ -4,9 +4,9 @@ from textchanges import *
 import os
 
 if __name__ == "__main__":
-    directory = "cleaned"
+    directory = ""
     tf_idf1 = tf_idf(directory)
-    print(max(tf_idf1.values()))
+    print(max(tf_idf1.values(directory)))
     files_names = list_of_files(directory + "/speeches")  # raw list of speeches names
     pres_dict = {}  # list of presidents names linked with their speeches filenames
     for name in names(files_names):
