@@ -94,7 +94,7 @@ if __name__ == "__main__":
             word = word.lower()
             print("There is the number of times the word", word, "is said in all of the speeches :", end=" ")
             tmp = " "
-            nb_time={}
+            nb_time=[0]
             for filename in list_of_files("Cleaned","txt"):
                 tmp = tf(filename)
                 nb_time.append(tmp)
