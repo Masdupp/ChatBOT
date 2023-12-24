@@ -19,7 +19,7 @@ if __name__ == "__main__":
     print("Choose the option you want to discover !:")
     print("1. Display the names of the studied presidents")
     print("2. Display the least important words in all speeches")
-    print("3. Display the most important words in all speeches")
+    print("3. Display the matrix of the most important words in all speeches")
     print("4. Display the most used word in a specific speech")
     print("5. Display the presidents that have said a specific word")
     print("6. Display the first speeches to talk about a specific topic")
