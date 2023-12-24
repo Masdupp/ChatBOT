@@ -127,23 +127,24 @@ def most_repeated_word_by_President(namep):
 def word_finder(word): #Find the president who said a word the most, how many time and other president who said the word
     dictionary_word_finder = {}
     maximum_mot, name_maximum = 0, ""
-    list_name = name.extract_name(name.list_of_files("speeches", "txt"))
-    for filename in os.listdir("cleaned"):
-        if filename.endswith(".txt"):
-            with open(f"cleaned/{filename}", 'r', encoding = 'utf-8') as file:
-                dict = tf(file.read())
-                for names in list_name:
-                    if names in filename:
-                        for word_dict in dict:
-                            if word_dict == word:
-                                if names in dictionary_word_finder:
-                                    dictionary_word_finder[names] += dict[word_dict]
-                                elif names not in dictionary_word_finder:
-                                    dictionary_word_finder[names] = dict[word_dict]
-    for names in dictionary_word_finder:
-        if dictionary_word_finder[names] > maximum_mot:
-            maximum_mot = dictionary_word_finder[names]
-            name_maximum = names
+    for i in name.list_of_files("speeches", "txt"):
+        list_name = name.extract_name(i)
+        for filename in os.listdir("cleaned"):
+            if filename.endswith(".txt"):
+                with open(f"cleaned/{filename}", 'r', encoding = 'utf-8') as file:
+                    dict = tf(file.read())
+                    for names in list_name:
+                        if names in filename:
+                            for word_dict in dict:
+                                if word_dict == word:
+                                    if names in dictionary_word_finder:
+                                        dictionary_word_finder[names] += dict[word_dict]
+                                    elif names not in dictionary_word_finder:
+                                        dictionary_word_finder[names] = dict[word_dict]
+        for names in dictionary_word_finder:
+            if dictionary_word_finder[names] > maximum_mot:
+                maximum_mot = dictionary_word_finder[names]
+                name_maximum = names
     return name_maximum, dictionary_word_finder
 
 def first_pronounced_word(word):    #return the name of the president that said a word first
@@ -158,7 +159,7 @@ def first_pronounced_word(word):    #return the name of the president that said 
                 minimum = counter
                 name_minimum = i
             counter += 1
-    return list_name[minimum], minimum
+    return list_name[minimum-1], minimum
 
 def word_by_all_president(word):     #return a word said by all the president
     dictionary = {}
