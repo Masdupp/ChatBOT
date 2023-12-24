@@ -132,18 +132,18 @@ def word_finder(word): #Find the president who said a word the most, how many ti
         if filename.endswith(".txt"):
             with open(f"cleaned/{filename}", 'r', encoding = 'utf-8') as file:
                 dict = tf(file.read())
-                for name in list_name:
-                    if name in filename:
+                for names in list_name:
+                    if names in filename:
                         for word_dict in dict:
                             if word_dict == word:
-                                if name in dictionary_word_finder:
-                                    dictionary_word_finder[name] += dict[word_dict]
-                                elif name not in dictionary_word_finder:
-                                    dictionary_word_finder[name] = dict[word_dict]
-    for name in dictionary_word_finder:
-        if dictionary_word_finder[name] > maximum_mot:
-            maximum_mot = dictionary_word_finder[name]
-            name_maximum = name
+                                if names in dictionary_word_finder:
+                                    dictionary_word_finder[names] += dict[word_dict]
+                                elif names not in dictionary_word_finder:
+                                    dictionary_word_finder[names] = dict[word_dict]
+    for names in dictionary_word_finder:
+        if dictionary_word_finder[names] > maximum_mot:
+            maximum_mot = dictionary_word_finder[names]
+            name_maximum = names
     return name_maximum, dictionary_word_finder
 
 def first_pronounced_word(word):    #return the name of the president that said a word first
