@@ -94,17 +94,16 @@ if __name__ == "__main__":
             word = word.lower()
             print("There is the number of times the word", word, "is said in all of the speeches :", end=" ")
             tmp = " "
-            nb_time= 0
+            nb_time={}
             for filename in list_of_files("Cleaned","txt"):
                 tmp = tf(filename)
-                
-                nb_time+=tmp
+                nb_time.append(tmp)
 
-            if nb_time==0:
+            if nb_time[0]==0:
                 print()
                 print("Sorry, no president have talked about this word, maybe the next president will.")
             else:
-                print(temp[word])
+                print(tmp[word])
         #elif choice == "8":
             #question = input("Yes I can do this ! Enter a question and I'll answer from the speeches !")
             #question = words_from_words(question)
