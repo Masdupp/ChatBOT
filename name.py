@@ -31,26 +31,27 @@ def extract_name(file_name: str) -> str:
         name = matched.group(1)
     
     return name
+
 names = []
 for i in file_names:
     names.append(extract_name(i))
 
 
-name = {}
+name_2 = {}
 
 for i in names:
     if i=='Chirac':
-        name["Chirac"] = "Jacques"
+        name_2["Chirac"] = "Jacques"
     if i=='Giscard dEstaing':
-        name["Giscard d'Estaing"] = "Valéry"
+        name_2["Giscard dEstaing"] = "Valéry"
     if i=='Hollande':
-        name["Hollande"] = 'François'
+        name_2["Hollande"] = 'François'
     if i=="Mitterrand":
-        name["Mitterrand"] = 'François'
+        name_2["Mitterrand"] = 'François'
     if i=='Sarkozy':
-        name["Sarkozy"] = 'Nicolas'
+        name_2["Sarkozy"] = 'Nicolas'
     if i=='Macron':
-        name["Macron"] = 'Emmanuel'
+        name_2["Macron"] = 'Emmanuel'
 
-
+print(name_2)
     
