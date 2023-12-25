@@ -103,12 +103,16 @@ if __name__ == "__main__":
                 print()
                 print("Sorry, no president have talked about this word, maybe the next president will.")
             else:
-                print(tmp[word])
+                print(len(nb_time))
         #elif choice == "8":
-            #question = input("Yes I can do this ! Enter a question and I'll answer from the speeches !")
-            #question = words_from_words(question)
-            #tmp = ""
-            #for filename in list_of_files("Cleaned","txt"):
+         #   question = input("Yes I can do this ! Enter a question and I'll answer from the speeches !")
+          #  question = words_from_words(question)
+           # tmp = ""
+            #for filename in list_of_files("cleaned","txt"):
+             #   tmp = find_common_terms(question, filename)
+              #  if tmp!= " ":
+               #     generate_response(question,)
+                     
         else:
             print("Sorry, this is not a valid option.")
         choice = input("Please enter the number of the option you want to choose: ")
